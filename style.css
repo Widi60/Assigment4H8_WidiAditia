@@ -1,0 +1,35 @@
+.profile-card {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.profile-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+.profile-details {
+  flex-grow: 1;
+  padding-left: 20px;
+}
+.profile-info {
+  text-align: left;
+  font-size: 0.9rem;
+  padding-left: 20px;
+  border-left: 1px solid #ddd; /* Thin line separator */
+  margin-left: 20px; /* Adds some space between the separator and the main profile section */
+}
+.profile-info p {
+  margin-bottom: 0.5rem;
+}
+.profile-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 30px;
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Card</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .profile-card {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+    }
+    .profile-details {
+      flex-grow: 1;
+      padding-left: 20px;
+    }
+    .profile-info {
+      text-align: left;
+      font-size: 0.9rem;
+      padding-left: 20px;
+      border-left: 1px solid #ddd; /* Thin line separator */
+      margin-left: 20px; /* Adds some space between the separator and the main profile section */
+    }
+    .profile-info p {
+      margin-bottom: 0.5rem;
+    }
+    .profile-buttons {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="profile-card">
+  <!-- Profile Image and Name Section -->
+  <div class="d-flex align-items-center">
+    <img src="avatar.png" alt="Profile Image" class="profile-image me-4">
+    
+    <div class="profile-details">
+      <h4 id="profile-name" class="mb-0">Widi Aditia</h4>
+      <p id="profile-role" class="text-muted">FortEnd Web Depeloper</p>
+      
+      <div class="profile-buttons">
+        <button class="btn btn-primary" onclick="showEditForm()">Edit</button>
+        <button class="btn btn-outline-success">Resume</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Information Section (Right-Aligned) -->
+  <div class="profile-info">
+    <p><strong>Availability</strong>: <span id="availability">Full Time</span></p>
+    <p><strong>Usia</strong>: <span id="age">22</span></p>
+    <p><strong>Lokasi</strong>: <span id="location">Bandung</span></p>
+    <p><strong>Pengalaman</strong>: <span id="experience">2</span></p>
+    <p><strong>Email</strong>: <span id="email">didiaditia17@gmail.com</span></p>
+  </div>
+</div>
+
+<!-- Edit Form Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="editForm">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" value="Nama Anda">
+          </div>
+          <div class="mb-3">
+            <label for="role" class="form-label">Role</label>
+            <input type="text" class="form-control" id="role" value="Front End Designer">
+          </div>
+          <div class="mb-3">
+            <label for="availability" class="form-label">Availability</label>
+            <input type="text" class="form-control" id="edit-availability" value="Full Time">
+          </div>
+          <div class="mb-3">
+            <label for="age" class="form-label">Usia</label>
+            <input type="number" class="form-control" id="edit-age" value="19">
+          </div>
+          <div class="mb-3">
+            <label for="location" class="form-label">Lokasi</label>
+            <input type="text" class="form-control" id="edit-location" value="Jakarta">
+          </div>
+          <div class="mb-3">
+            <label for="experience" class="form-label">Pengalaman</label>
+            <input type="number" class="form-control" id="edit-experience" value="2">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="edit-email" value="email@gmail.com">
+          </div>
+          <button type="button" class="btn btn-success" onclick="saveChanges()" data-bs-dismiss="modal">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function showEditForm() {
+    const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+    editModal.show();
+  }
+
+  function saveChanges() {
+    document.getElementById('profile-name').textContent = document.getElementById('name').value;
+    document.getElementById('profile-role').textContent = document.getElementById('role').value;
+    document.getElementById('availability').textContent = document.getElementById('edit-availability').value;
+    document.getElementById('age').textContent = document.getElementById('edit-age').value;
+    document.getElementById('location').textContent = document.getElementById('edit-location').value;
+    document.getElementById('experience').textContent = document.getElementById('edit-experience').value;
+    document.getElementById('email').textContent = document.getElementById('edit-email').value;
+  }
+</script>
+
+</body>
+</html>
